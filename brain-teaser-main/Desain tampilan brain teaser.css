@@ -1,0 +1,357 @@
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    color: white;
+    background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+    background-size: 200% 100%; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    position: relative;
+    animation: animateGradient 15s infinite linear; 
+}
+
+@keyframes animateGradient {
+    0% {
+        background-position: 0% 50%; 
+    }
+    100% {
+        background-position: 100% 50%; 
+    }
+}
+    #start-screen {
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        padding: 40px;
+        border-radius: 10px;
+        box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.5);
+       
+    }
+
+    #how-to-play-class{
+        box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.5);
+        border-radius: 10px;
+        padding: 4px;
+    }
+
+    #materi-sinonim, #materi-antonim{
+        box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.5);
+        border-radius: 10px;
+        padding: 14px;
+    }
+
+    .hasil-container{
+          box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.5);
+        border-radius: 10px;
+        padding: 14px;
+    }
+    
+   /* CSS untuk animasi denyut */
+.pulse-animation {
+    animation: pulse 2s infinite ease-in-out;
+}
+
+/* Keyframes untuk animasi denyut */
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+    100% {
+        transform: scale(1);
+    }
+    }
+
+    .btn-custom {
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+    }
+    
+    .btn-custom:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 20px rgba(0, 0, 0, 0.3);
+    }   
+
+    .how-to-play-list {
+        text-align: left;
+        margin: 0 auto 20px auto;
+        padding: 0 20px;
+        list-style-type: disc;
+    }
+
+    #menu ,#quiz { 
+        padding: 40px;
+        border-radius: 10px;
+        box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.5);
+       
+    }
+
+    #player-info { 
+        padding: 50px;
+        border-radius: 10px;
+        box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.5);
+    }
+
+    .display-name-class {
+        font-family: 'Times New Roman', Times, serif;
+        font-weight: bold;
+        color: white;
+        margin-bottom: 20px;
+        font-size: 22px;
+    }
+
+    #start-screen {
+        position: relative;
+    }
+
+    #start-screen::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        border-radius: 10px;
+        z-index: 0;
+    }
+
+    #start-screen > * {
+        position: relative;
+        z-index: 1;
+    }
+.judul {
+    font-weight: bold;
+    color: #fff;
+    margin-top: -20px;
+    text-shadow: black 0px 0px 5px;
+}
+    
+
+.container {
+     max-width: 600px; 
+     width: 100%; 
+     padding: 15px; 
+     background: #3d3d58; 
+     box-shadow: 0px 0px 15px #2823239c; 
+     border-radius: 20px; 
+     text-align: center; 
+}
+
+.hidden {
+     display: none; 
+}
+
+.question { 
+    margin: 20px 0; 
+    font-size: 20px; 
+    font-weight: bold; 
+}
+
+
+.btn { 
+    padding: 10px 15px; 
+    margin: 10px auto; 
+    font-size: 16px; 
+    border: none; 
+    border-radius: 20px; 
+    cursor: pointer; 
+    transition: 0.3s; 
+    display: block; 
+    width: 80%; 
+}
+
+
+.btn:hover { 
+    background-color: #575757; 
+}
+
+.btn-primary {
+     background-color: #274eda; 
+     color: white; 
+}
+
+.btn-secondary {
+     background-color: #FF5733; 
+     color: white; 
+}
+
+.progress-container { 
+    width: 100%; 
+    background-color: #555; 
+    border-radius: 20px; 
+    margin-top: 15px; 
+}
+
+.progress-bar { 
+    height: 20px; 
+    border-radius: 20px; 
+    text-align: center; 
+    line-height: 20px; 
+    color: white; 
+    font-weight: bold;
+    background: linear-gradient(to right, #ff6b6b, #6b6bff); 
+}
+
+.correct { 
+    background-color: green !important; 
+    color: white; 
+}
+
+.wrong {
+     background-color: red !important; 
+     color: white; 
+}
+
+.container .judul{
+    padding: 20px;
+    font-weight: bold;
+}
+
+.result-detail { 
+    text-align: left;
+     margin-top: 20px; 
+     background: #2c2c3e; 
+     padding: 15px; 
+     border-radius: 8px; 
+     max-height: 300px; 
+     overflow-y: auto; 
+}
+
+.result-detail p { 
+    margin: 5px 0; 
+}
+
+.correct-answer { color: #4CAF50; font-weight: bold; }
+.wrong-answer { color: #f44336; font-weight: bold; }
+.neutral-answer {color: #ffa500; font-weight: bold;}
+.w3-animate-top { animation: w3-animate-top 0.5s; }
+
+@keyframes w3-animate-top {
+    from {top: -300px; opacity: 0} 
+    to {top: 0; opacity: 1}
+}
+@media (max-width: 600px) {
+    .container { width: 90%; }
+    .btn { width: 100%; }
+}
+@media (max-width: 400px) {
+    .btn { font-size: 14px; }
+    .question { font-size: 18px; }
+}
+
+
+
+.hasil-container {
+    background-size: cover;
+    padding: 20px;
+    border-radius: 10px;
+    margin: 0 auto;
+}
+
+.hasil-title {
+    color: #333;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.player-info {
+    margin-bottom: 30px;
+}
+
+.info-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    padding: 5px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.scores-container {
+    margin-bottom: 30px;
+}
+
+.score-row {
+    margin-bottom: 15px;
+}
+
+.progress-bar-container {
+    background: #eee;
+    height: 25px;
+    border-radius: 12.5px;
+    position: relative;
+    overflow: hidden;
+    margin-top: 5px;
+}
+
+.progress-bar {
+    height: 100%;
+       background: linear-gradient(to right, #ff6b6b, #6b6bff);
+    transition: width 0.5s ease-in-out;
+    position: relative;
+}
+
+.score-value {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #333;
+    font-weight: bold;
+}
+
+.info-row label {
+    font-weight: bold;
+    color: #333;
+}
+
+#hasil button {
+    display: block;
+    margin: 20px auto 0;
+}
+
+
+
+.mute-toggle {
+    position: fixed; 
+    top: 20px;      
+    right: 20px;    
+    z-index: 1000;  
+    background-color: rgba(255, 255, 255, 0.7);
+    border: none;
+    border-radius: 50%;
+    width: 50px;    
+    height: 50px;   
+    display: flex; 
+    justify-content: center; 
+    align-items: center;    
+    cursor: pointer;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.mute-toggle i {
+    font-size: 24px;
+    color: #333;     
+}
+
+.mute-toggle:hover {
+    background-color: rgba(255, 255, 255, 0.9);
+    transform: scale(1.05); 
+}
+
+.mute-toggle.muted {
+    background-color: rgba(255, 99, 71, 0.7); 
+}
+
+.mute-toggle.muted i {
+    color: #fff; 
+}

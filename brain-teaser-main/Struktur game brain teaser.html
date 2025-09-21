@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <title>Quiz Game</title>
+    <link rel="stylesheet" href="Desain tampilan brain teaser.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <body>
+         
+        <button id="muteButton" class="mute-toggle">
+             <i class="fas fa-volume-up"></i>
+        </button>
+
+         <audio id="backgroundMusic" src="" loop preload="auto"></audio>
+         
+    <div class="container">
+
+        <div class="w3-animate-top">
+            
+            <div id="start-screen">
+                <div class="logo-container">
+                    <img src="asset/image/logo_brain_teaser.png" alt="logo" width="220px" class="pulse-animation">
+                </div>
+                <div class="button-container">
+                    <button class="btn btn-primary" onclick="showPlayerInfo()">Mulai</button>
+                </div>
+            </div>
+
+        <div id="player-info" class="hidden">
+            <div class="latar-belakang-input">
+            <p class="display-name-class">Masukkan Nama</p>
+            <input type="text" id="player-name" placeholder="--Nama--" class="w3-input w3-margin-top" 
+            style="text-align: center; 
+            border-radius: 5px; 
+            padding: 10px; width: 
+            60%; margin: auto; 
+            font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+            background-color: #f1f1f1; 
+            color: black bold;
+            border-radius: 5px;
+            "
+            />
+            <br>
+            <p class="display-name-class">Kelas Anda</p>
+            <input type="text" id="player-class" placeholder="--Kelas--" class="w3-input w3-margin-top" 
+            
+                style="text-align: center; 
+                border-radius: 5px; 
+                padding: 10px; width: 
+                60%; margin: auto; 
+                font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+                background-color: #f1f1f1; 
+                color: black bold;
+                border-radius: 5px;
+
+            "/>
+            <br>
+            <button class="btn btn-primary" style="width: 50%; font-weight: bold;" onclick="validateAndShowRule()">Lanjut</button>
+        </div>
+        </div>
+
+        <div id="how-to-play-class" class="hidden">
+            <h1 style="font-size: 24px; font-weight: bold; margin-bottom: 20px;">Cara Bermain</h1>
+            <ul class="how-to-play-list">
+                <li style="text-align: justify; margin-bottom: 10px;">Game ini terdiri dari beberapa level dengan kategori berbeda seperti sinonim, antonim, dan materi biasa.</li>
+                <li style="text-align: justify; margin-bottom: 10px;">Setiap level memiliki 10 pertanyaan yang harus dijawab dalam waktu 30 detik per pertanyaan.</li>
+                <li style="text-align: justify; margin-bottom: 10px;">Untuk membuka level berikutnya, pemain harus mencapai skor minimal 70 pada level sebelumnya.</li>
+                <li style="text-align: justify; margin-bottom: 10px;">Pemain dapat melihat hasil skor mereka di menu utama setelah menyelesaikan setiap level.</li>
+                <li style="text-align: justify; margin-bottom: 10px;">Pastikan untuk membaca materi sebelum memulai permainan untuk meningkatkan peluang menjawab dengan benar.</li>
+            </ul>
+
+            <button class="btn btn-primary" style="width: 50%;" onclick="ShowRule()">Lanjut</button>
+        </div>
+
+        <div id="menu" class="hidden">
+            <p style="font-size: 20px; font-weight: bold;">Pilih kategori quiz</p>
+            <button id="btn-sinonim" class="btn btn-primary" onclick="startGame('sinonim')">Sinonim</button>
+            <button id="btn-antonim" class="btn btn-primary" onclick="startGameIfUnlocked('antonim')">Antonim</button>
+            <button id="btn-materi" class="btn btn-primary" onclick="startGameIfUnlocked('materi')">Materi Biasa</button> 
+            <button id="btn-hasil" class="btn btn-primary" onclick="showAllScores()">Lihat Nilai</button>
+        </div>
+        
+       <div id="materi-sinonim" class="hidden">
+            <h2>Sinonim</h2>
+            <p style="text-align: justify; margin: 0 20px 20px 20px;">Sinonim adalah kata-kata yang memiliki makna yang sama atau mirip dengan kata lain. Misalnya, kata "besar" memiliki sinonim seperti "luas", "gede", atau "agung". Dalam permainan ini, Anda akan diuji kemampuan Anda dalam mengenali sinonim dari berbagai kata. Pastikan untuk membaca materi ini dengan baik sebelum memulai kuis sinonim!</p>
+            <button id="btn-start-sinonim" class="btn btn-primary" style="margin: 20px auto 10px auto; display: block;">Mulai Quiz Sinonim</button>
+            <button id="btn-back-to-menu-sinonim" class="btn btn-secondary" style="margin: 10px auto 20px auto; display: block;">Kembali ke Menu</button>
+        </div>
+
+        <div id="materi-antonim" class="hidden">
+            <h2>Antonim</h2>
+            <p style="text-align: justify; margin: 0 20px 20px 20px;">Antonim adalah kata-kata yang memiliki makna yang berlawanan atau bertentangan dengan kata lain. Misalnya, kata "besar" memiliki antonim seperti "kecil", "sempit", atau "mini". Dalam permainan ini, Anda akan diuji kemampuan Anda dalam mengenali antonim dari berbagai kata.</p>
+            <button id="btn-start-antonim" class="btn btn-primary" style="margin: 20px auto 10px auto; display: block;">Mulai Quiz Antonim</button>
+            <button id="btn-back-to-menu-antonim" class="btn btn-secondary" style="margin: 10px auto 20px auto; display: block;">Kembali ke Menu</button>
+        </div>
+
+
+
+        <div id="quiz" class="hidden">
+            <div class="progress-container">
+            <center>
+            <div id="progress-bar" class="progress-bar" style="width: 100%">30</div>
+            </center>
+            </div>
+            <p id="question" class="question"></p>
+            <div id="answers"></div>
+        </div>
+
+        <div id="result" class="hidden">
+            <h2>Hasil Quiz</h2>
+            <p id="score"></p>
+            <div id="result-detail"></div>
+            <button class="btn btn-secondary" onclick="restartGame()">Lanjut ke quiz berikutnya</button>
+        </div>
+    </div>
+
+    <div id="hasil" class="hidden">
+   <div class="hasil-container">
+        <h2 class="hasil-title" style="color: white;">Hasil Nilai Quiz</h2>
+        <div class="player-info">
+            <div class="info-row">
+                <label style="color: white;">Nama :</label>
+                <span id="hasil-nama" style="color: white;"></span>
+            </div>
+            <div class="info-row">
+                <label style="color: white;">Kelas:</label>
+                <span id="hasil-kelas" style="color: white;"></span>
+            </div>
+        </div>
+        
+        <div class="scores-container">
+            <div class="score-row">
+                <label style="color: white;">Sinonim:</label>
+                <div class="progress-bar-container">
+                    <div id="sinonim-progress" class="progress-bar"></div>
+                    <span id="sinonim-score" class="score-value"></span>
+                </div>
+            </div>
+            
+            <div class="score-row">
+                <label style="color: white;">Antonim:</label>
+                <div class="progress-bar-container">
+                    <div id="antonim-progress" class="progress-bar"></div>
+                    <span id="antonim-score" class="score-value"></span>
+                </div>
+            </div>
+            
+            <div class="score-row">
+                <label style="color: white;">Materi:</label>
+                <div class="progress-bar-container">
+                    <div id="materi-progress" class="progress-bar"></div>
+                    <span id="materi-score" class="score-value"></span>
+                </div>
+            </div>
+        </div>       
+        <button class="btn btn-primary" onclick="backToMenu()">Kembali Ke Menu</button>
+    </div>
+</div>
+
+    <audio id="click-sound-button" src="asset/sound/click-button-sound.mp3" preload="auto"></audio>
+    <audio id="sound-else-input" src="asset/sound/else sound non input.mp3" preload="auto"></audio>
+    <audio id="sound-accept-input" src="" preload="auto"></audio>
+    <audio id="correct-sound" src="asset/sound/rightanswer-95219.mp3" preload="auto"></audio>
+    <audio id="wrong-sound" src="asset/sound/wrong-47985.mp3" preload="auto"></audio>
+    <audio id="backgroundMusic" src="asset/sound/background-music-soft-calm-346480.mp3" loop preload="auto"></audio>
+
+
+
+    <script src="Proses game brain teaser.js"></script>
+</body>
+</html>
+
+
